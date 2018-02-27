@@ -1,0 +1,14 @@
+<div class="text-center" *ngIf="!registerButtonClicked">
+  <h1>Connect</h1>
+  <p class="lead">Use Connect to connect with people with matching skills.</p>
+  <div class="text-center">
+    <button class="btn btn-primary btn-lg" (click)="registerFormToggle()">Register</button>
+    <button class="btn btn-info btn-lg">Learn more</button>
+  </div>
+</div>
+
+<div class="container-fluid" *ngIf="registerButtonClicked">
+  <div class="col-md-4 offset-md-4 my-5">
+    <app-signup (resetForm)="cancelRegistration($event)"></app-signup>
+  </div>
+</div>

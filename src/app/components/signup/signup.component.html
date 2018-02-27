@@ -1,0 +1,30 @@
+<form action="" #registerForm="ngForm" (ngSubmit)="registerUser()">
+  <h2 class="text-center text-primary h2">Sign Up</h2>
+  <hr>
+
+  <div class="form-group">
+    <input type="text" class="form-control" placeholder="First name" name="fname" required [(ngModel)]="signupModel.firstname"
+      #fnameInput="ngModel">
+  </div>
+  <div class="form-group">
+    <input type="text" class="form-control" placeholder="Surname" name="surname" required [(ngModel)]="signupModel.lastname"
+      #snameInput="ngModel">
+  </div>
+  <div class="form-group">
+    <input type="text" class="form-control" placeholder="Username" name="username" required [(ngModel)]="signupModel.username"
+      #unameInput="ngModel">
+  </div>
+  <div class="form-group">
+    <input type="email" class="form-control" placeholder="Email Address" name="emailaddress" required [(ngModel)]="signupModel.email"
+      #emailInput="ngModel">
+  </div>
+  <div class="form-group">
+    <input type="password" class="form-control" placeholder="New password" name="password" required [(ngModel)]="signupModel.password"
+      #pwdInput="ngModel">
+  </div>
+  <div class="form-group text-center">
+    <button class="btn btn-success" type="submit">Register</button>
+    <button class="btn btn-secondary" (click)="cancelRegistration()" type="button">Cancel</button>
+  </div>
+
+</form>

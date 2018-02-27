@@ -1,0 +1,16 @@
+.dropdown-menu-position {
+  margin-top: .7rem !important;
+}
+
+.dropdown-menu-position li {
+  cursor: pointer;
+}
+
+.navbar {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+li {
+  cursor: pointer;
+}

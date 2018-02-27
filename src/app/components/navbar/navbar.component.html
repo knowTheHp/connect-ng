@@ -1,0 +1,43 @@
+<nav class="navbar navbar-expand-md navbar-dark bg-primary">
+  <a class="navbar-brand ml-5" [routerLink]="['/home']" routerLinkActive="active">Connect</a>
+  <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navList">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navList">
+    <ul *ngIf="loggedIn()" class="navbar-nav mr-auto">
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link" [routerLink]="['/users']">Users</a>
+      </li>
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link" [routerLink]="['/lists']"> Lists</a>
+      </li>
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link" [routerLink]="['/messages']">Messages</a>
+      </li>
+    </ul>
+    <form *ngIf="!loggedIn()" class="form-inline my-0 ml-auto mr-5" #loginForm="ngForm" (ngSubmit)="loginUser()">
+      <input class="form-control mr-sm-2" type="text" email required placeholder="email" name="email" #emailInput="ngModel" [(ngModel)]="userLoginModel.email">
+      <input class="form-control mr-sm-2" type="password" required placeholder="password" name="password" [(ngModel)]="userLoginModel.password"
+        #pwdInput="ngModel">
+      <button class="btn btn-success" type="submit" [disabled]="!loginForm.valid">Sign In</button>
+    </form>
+
+    <ul *ngIf="loggedIn()" class="nav navbar-nav mr-5">
+      <li class="dropdown" dropdown>
+        <a class="nav-link dropdown-toggle username_link" dropdownToggle>
+          Welcome {{authService.decodedToken?.unique_name | titlecase }}
+        </a>
+        <ul class="dropdown-menu dropdown-menu-position" *dropdownMenu>
+          <li routerLinkActive="active">
+            <a class="dropdown-item" href="#">Edit Profile</a>
+          </li>
+          <li class="dropdown-divider" role="separator"></li>
+          <li routerLinkActive="active">
+            <a class="dropdown-item" href="#" (click)="logoutUser()">Logout</a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</nav>
