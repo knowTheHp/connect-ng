@@ -10,6 +10,7 @@ export interface User {
     lastname: string;
     username: string;
     gender: string;
+    age: number;
     created: Date;
     lastActive: Date;
     photoUrl: string;

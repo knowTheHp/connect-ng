@@ -1,1 +1,18 @@
-
+<div class="card mt-5">
+  <div class="card-body">
+    <div class="card-img text-center">
+      <img src="{{user.photoUrl}}" alt="{{user.firstname+user.lastname}}">
+    </div>
+    <div class="card-text text-center">
+      <h5>
+        <i class="fa fa-user"></i>
+        {{user.firstname+' '+user.lastname}}, {{user.age}}
+      </h5>
+    </div>
+    <div class="card-text text-center">
+      <h5>
+        <small>{{user.city}} </small>
+      </h5>
+    </div>
+  </div>
+</div>

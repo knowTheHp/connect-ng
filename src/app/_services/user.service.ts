@@ -29,11 +29,6 @@ export class UserService {
     }
   }
 
-
-
-
-
-
   //handle api errors
   private handleError(error: any) {
     //application error
