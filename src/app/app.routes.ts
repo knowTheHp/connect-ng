@@ -1,9 +1,9 @@
 import { Routes } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
-import { UserListComponent } from './components/user-list/user-list.component';
 import { ListComponent } from './components/list/list.component';
 import { MessagesComponent } from './components/messages/messages.component';
 import { AuthGuard } from './_guards/auth.guard';
+import { UserListComponent } from './components/users/user-list/user-list.component';
 
 export const appRoutes: Routes = [
     { path: 'home', component: HomeComponent },
