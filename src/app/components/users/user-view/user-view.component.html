@@ -4,9 +4,28 @@
       <img src="{{user.photoUrl}}" alt="{{user.firstname+user.lastname}}">
     </div>
     <div class="card-text text-center">
+      <ul class="list-inline">
+        <li class="list-inline-item">
+          <button class="btn btn-primary">
+            <i class="fa fa-user"></i>
+          </button>
+        </li>
+        <li class="list-inline-item">
+          <button class="btn btn-primary">
+            <i class="fa fa-thumbs-up"></i>
+          </button>
+        </li>
+        <li class="list-inline-item">
+          <button class="btn btn-primary">
+            <i class="fa fa-envelope"></i>
+          </button>
+        </li>
+      </ul>
+    </div>
+    <div class="card-text text-center">
       <h5>
         <i class="fa fa-user"></i>
-        {{user.firstname+' '+user.lastname}}, {{user.age}}
+        {{user.firstname+' '+user.lastname}}
       </h5>
     </div>
     <div class="card-text text-center">

@@ -6,3 +6,7 @@ img {
 .card-body {
   padding: 0;
 }
+
+.card-image {
+  position: relative;
+}
