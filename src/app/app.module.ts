@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
-import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+import { BsDropdownModule, TabsModule } from 'ngx-bootstrap';
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
@@ -40,7 +40,8 @@ import { UserDetailComponent } from './components/users/user-detail/user-detail.
     FormsModule,
     BsDropdownModule.forRoot(),
     RouterModule.forRoot(appRoutes),
-    AuthModule
+    AuthModule,
+    TabsModule.forRoot()
   ],
   providers: [AuthService, AlertifyService, AuthGuard, UserService],
   bootstrap: [AppComponent]

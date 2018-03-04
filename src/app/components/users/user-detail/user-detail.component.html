@@ -1,31 +1,31 @@
 <div class="container mt-5 mb-5">
   <div class="row">
-    <div class="col-sm-4">
+    <div class="col-sm-12">
       <div class="card">
-        <div class="card-title">
-          <img src="{{user?.photoUrl}}" class="img-profile img-fluid card-img" alt="{{user?.username}}">
-          <h4 class="card-text text-center">
+        <div class="card-title text-center mt-3">
+          <img src="{{user?.photoUrl}}" class="img-fluid" alt="{{user?.username}}">
+          <h4 class="card-text">
             {{user?.firstname+ ' '+user?.lastname}}
           </h4>
         </div>
-        <div class="card-body text-center">
-          <strong>Location:</strong>
-          <p>{{user?.city}},{{user?.country}} </p>
-          <div>
-            <strong>Gender:</strong>
-            <p>{{user?.gender}}</p>
-          </div>
-          <div>
-            <strong>Age:</strong>
-            <p>{{user?.age}}</p>
-          </div>
-          <div>
-            <strong>Last Active:</strong>
-            <p>{{user?.lastActive}}</p>
-          </div>
-          <div>
-            <strong>Member Since:</strong>
-            <p>{{user?.created}}</p>
+        <div class="card-body">
+          <div class="row text-center">
+            <div class="col-sm-3">
+              <strong>Location:</strong>
+              <p>{{user?.city}},{{user?.country}} </p>
+            </div>
+            <div class="col-sm-3">
+              <strong>Gender:</strong>
+              <p>{{user?.gender| titlecase}}</p>
+            </div>
+            <div class="col-sm-3">
+              <strong>Age:</strong>
+              <p>{{user?.age}}</p>
+            </div>
+            <div class="col-sm-3">
+              <strong>Last Active:</strong>
+              <p>{{user?.lastActive}}</p>
+            </div>
           </div>
         </div>
         <div class="card-footer text-center">
@@ -44,6 +44,19 @@
         </div>
       </div>
     </div>
-    <div class="col-sm-8">
+    <div class="row mt-5">
+      <div class="col-sm-12">
+        <tabset [justified]="false" type="pills">
+          <tab heading="About" class="mt-3">
+            {{user?.introduction}}
+          </tab>
+          <tab heading="Education" class="mt-3"></tab>
+          <tab heading="Experience" class="mt-3"></tab>
+          <tab heading="Project" class="mt-3"></tab>
+          <tab heading="Skill" class="mt-3"></tab>
+          <tab heading="Photos" class="mt-3"></tab>
+          <tab heading="Messages" class="mt-3"></tab>
+        </tabset>
+      </div>
     </div>
   </div>
