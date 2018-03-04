@@ -3,28 +3,28 @@
     <div class="col-sm-12">
       <div class="card">
         <div class="card-title text-center mt-3">
-          <img src="{{user?.photoUrl}}" class="img-fluid" alt="{{user?.username}}">
+          <img src="{{user.photoUrl}}" class="img-fluid" alt="{{user.username}}">
           <h4 class="card-text">
-            {{user?.firstname+ ' '+user?.lastname}}
+            {{user.firstname+ ' '+user.lastname}}
           </h4>
         </div>
         <div class="card-body">
           <div class="row text-center">
             <div class="col-sm-3">
               <strong>Location:</strong>
-              <p>{{user?.city}},{{user?.country}} </p>
+              <p>{{user.city}},{{user.country}} </p>
             </div>
             <div class="col-sm-3">
               <strong>Gender:</strong>
-              <p>{{user?.gender| titlecase}}</p>
+              <p>{{user.gender| titlecase}}</p>
             </div>
             <div class="col-sm-3">
               <strong>Age:</strong>
-              <p>{{user?.age}}</p>
+              <p>{{user.age}}</p>
             </div>
             <div class="col-sm-3">
               <strong>Last Active:</strong>
-              <p>{{user?.lastActive}}</p>
+              <p>{{user.lastActive}}</p>
             </div>
           </div>
         </div>
@@ -48,7 +48,7 @@
       <div class="col-sm-12">
         <tabset [justified]="false" type="pills">
           <tab heading="About" class="mt-3">
-            {{user?.introduction}}
+            {{user.introduction}}
           </tab>
           <tab heading="Education" class="mt-3"></tab>
           <tab heading="Experience" class="mt-3"></tab>
