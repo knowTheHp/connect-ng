@@ -50,11 +50,40 @@
           <tab heading="About" class="mt-3">
             {{user.introduction}}
           </tab>
-          <tab heading="Education" class="mt-3"></tab>
+          <tab heading="Education" class="mt-3">
+            <div class="card card-body mt-5" *ngFor="let edu of education">
+              <div>
+                <strong>School:</strong>
+                <p>{{edu.school | titlecase }}</p>
+              </div>
+              <div>
+                <strong>Degree:</strong>
+                <p>{{edu.degree | titlecase }}</p>
+              </div>
+              <div>
+                <strong>Field:</strong>
+                <p>{{edu.field | titlecase }}</p>
+              </div>
+              <div>
+                <strong>Grade:</strong>
+                <p>{{edu.grade | titlecase }}</p>
+              </div>
+              <div>
+                <strong>Start Year:</strong>
+                <p>{{edu.startYear | date}}</p>
+              </div>
+              <div>
+                <strong>Passout Year:</strong>
+                <p>{{edu.endYear | date}}</p>
+              </div>
+            </div>
+          </tab>
           <tab heading="Experience" class="mt-3"></tab>
           <tab heading="Project" class="mt-3"></tab>
           <tab heading="Skill" class="mt-3"></tab>
-          <tab heading="Photos" class="mt-3"></tab>
+          <tab heading="Photos" class="mt-3">
+            <ngx-gallery [options]="galleryOptions" [images]="galleryImages"></ngx-gallery>
+          </tab>
           <tab heading="Messages" class="mt-3"></tab>
         </tabset>
       </div>
