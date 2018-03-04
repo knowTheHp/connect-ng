@@ -1,3 +1,4 @@
+import { AuthModule } from './auth/auth.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
@@ -36,7 +37,8 @@ import { UserViewComponent } from './components/users/user-view/user-view.compon
     HttpModule,
     FormsModule,
     BsDropdownModule.forRoot(),
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    AuthModule
   ],
   providers: [AuthService, AlertifyService, AuthGuard, UserService],
   bootstrap: [AppComponent]
