@@ -1,0 +1,49 @@
+<div class="container mt-5 mb-5">
+  <div class="row">
+    <div class="col-sm-4">
+      <div class="card">
+        <div class="card-title">
+          <img src="{{user?.photoUrl}}" class="img-profile img-fluid card-img" alt="{{user?.username}}">
+          <h4 class="card-text text-center">
+            {{user?.firstname+ ' '+user?.lastname}}
+          </h4>
+        </div>
+        <div class="card-body text-center">
+          <strong>Location:</strong>
+          <p>{{user?.city}},{{user?.country}} </p>
+          <div>
+            <strong>Gender:</strong>
+            <p>{{user?.gender}}</p>
+          </div>
+          <div>
+            <strong>Age:</strong>
+            <p>{{user?.age}}</p>
+          </div>
+          <div>
+            <strong>Last Active:</strong>
+            <p>{{user?.lastActive}}</p>
+          </div>
+          <div>
+            <strong>Member Since:</strong>
+            <p>{{user?.created}}</p>
+          </div>
+        </div>
+        <div class="card-footer text-center">
+          <div class="btn-group d-sm-block">
+            <div class="btn-group">
+              <button class="btn btn-primary">
+                FOLLOW
+              </button>
+            </div>
+            <div class="btn-group">
+              <button class="btn btn-success">
+                MESSAGE
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-8">
+    </div>
+  </div>

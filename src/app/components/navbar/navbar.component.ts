@@ -21,7 +21,7 @@ export class NavbarComponent implements OnInit {
     }, error => {
       this.alertify.error('failed to login');
     }, () => {
-      this.router.navigate(['/users']);
+      this.router.navigate(['/home']);
     });
   }
 

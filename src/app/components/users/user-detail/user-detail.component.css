@@ -1,0 +1,16 @@
+.img-profile {
+  width: 85%;
+  height: 85%;
+  margin: 25px;
+}
+
+.btn {
+  border-radius: 0;
+}
+
+@media only screen and (max-width:992px) {
+  .img-profile {
+    width: 100%;
+    margin: 0 !important;
+  }
+}

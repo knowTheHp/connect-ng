@@ -15,16 +15,26 @@ export class UserService {
   constructor(private authHttp: AuthHttp) { }
 
   getUsers(): Observable<User[]> {
-    return this.authHttp.get(this.baseUrl + 'user')
+    return this.authHttp
+      .get(this.baseUrl + 'user')
       .map(response => <User[]>response.json())
+      .catch(this.handleError);
+  }
+
+  getUser(id): Observable<User> {
+    return this.authHttp
+      .get(this.baseUrl + 'user/' + id)
+      .map(response => <User>response.json())
       .catch(this.handleError);
   }
 
   //handle api errors
   private handleError(error: any) {
     //application error
-    const applicationError = error.headers.get('Application-Error');
-    if (applicationError) return Observable.throw(applicationError);
+    const applicationError = error.headers
+      .get('Application-Error');
+    if (applicationError) return Observable
+      .throw(applicationError);
     //server error
     const serverError = error.json();
     let modelStateErrors = '';

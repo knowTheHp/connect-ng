@@ -20,6 +20,7 @@ import { AuthGuard } from './_guards/auth.guard';
 import { UserService } from './_services/user.service';
 import { UserListComponent } from './components/users/user-list/user-list.component';
 import { UserViewComponent } from './components/users/user-view/user-view.component';
+import { UserDetailComponent } from './components/users/user-detail/user-detail.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { UserViewComponent } from './components/users/user-view/user-view.compon
     UserListComponent,
     ListComponent,
     MessagesComponent,
-    UserViewComponent
+    UserViewComponent,
+    UserDetailComponent
   ],
   imports: [
     BrowserModule,
