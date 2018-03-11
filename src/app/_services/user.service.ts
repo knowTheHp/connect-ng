@@ -28,6 +28,11 @@ export class UserService {
       .catch(this.handleError);
   }
 
+  updateUser(id: Number, user: User) {
+    return this.authHttp.put(this.baseUrl + 'user/' + id, user)
+      .catch(this.handleError);
+  }
+
   //handle api errors
   private handleError(error: any) {
     //application error

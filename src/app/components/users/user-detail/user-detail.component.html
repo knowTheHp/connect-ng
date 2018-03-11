@@ -50,6 +50,10 @@
           <tab heading="About" class="mt-3">
             {{user.introduction}}
           </tab>
+          <tab heading="Interest" class="mt-3">
+            {{user.interests}}
+          </tab>
+          <!-- education tab -->
           <tab heading="Education" class="mt-3">
             <div class="card card-body mt-5" *ngFor="let edu of education">
               <div>
@@ -78,13 +82,65 @@
               </div>
             </div>
           </tab>
-          <tab heading="Experience" class="mt-3"></tab>
+          <!--end -->
+          <!-- experience tab -->
+          <tab heading="Experience" class="mt-3">
+            <div class="card card-body mt-5" *ngFor="let work of workXp">
+              <div>
+                <strong>Title:</strong>
+                <p>{{work.title | titlecase }}</p>
+              </div>
+              <div>
+                <strong>Company:</strong>
+                <p>{{work.company | titlecase }}</p>
+              </div>
+              <div>
+                <strong>Location:</strong>
+                <p>{{work.location | titlecase }}</p>
+              </div>
+              <div>
+                <strong>Start Month:</strong>
+                <p>{{work.startMonth | titlecase }}</p>
+              </div>
+              <div>
+                <strong>Start Year:</strong>
+                <p>{{work.startYear | date}}</p>
+              </div>
+              <div *ngIf="work.isCurrentlyWorking else end">
+                <strong>Currently Working:</strong>
+                <p>Currently Working</p>
+              </div>
+              <ng-template #end>
+                <div>
+                  <strong>End Month:</strong>
+                  <p>{{work.endMonth | titlecase }}</p>
+                </div>
+                <div>
+                  <strong>End Year:</strong>
+                  <p>{{work.endYear | date}}</p>
+                </div>
+              </ng-template>
+              <div>
+                <strong>Description:</strong>
+                <p>{{work.description}}</p>
+              </div>
+            </div>
+          </tab>
+          <!-- end -->
+          <!-- project tab -->
           <tab heading="Project" class="mt-3"></tab>
+          <!-- end -->
+          <!-- skills tab -->
           <tab heading="Skill" class="mt-3"></tab>
+          <!-- end -->
+          <!-- photos tab -->
           <tab heading="Photos" class="mt-3">
             <ngx-gallery [options]="galleryOptions" [images]="galleryImages"></ngx-gallery>
           </tab>
+          <!-- end -->
+          <!-- messages tab -->
           <tab heading="Messages" class="mt-3"></tab>
+          <!-- end -->
         </tabset>
       </div>
     </div>

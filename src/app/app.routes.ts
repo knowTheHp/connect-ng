@@ -7,6 +7,9 @@ import { UserListComponent } from './components/users/user-list/user-list.compon
 import { UserDetailComponent } from './components/users/user-detail/user-detail.component';
 import { UserResolver } from './_resolvers/user.resolver';
 import { UsersResolver } from './_resolvers/users.resolver';
+import { UserEditComponent } from './components/users/user-edit/user-edit.component';
+import { UserEditResolver } from './_resolvers/user-edit.resolver';
+import { PreventUnsavedChanges } from './_guards/unsaved-changes.guard';
 
 export const appRoutes: Routes = [
     { path: 'home', component: HomeComponent },
@@ -14,6 +17,7 @@ export const appRoutes: Routes = [
         path: '', runGuardsAndResolvers: 'always', canActivate: [AuthGuard], children: [
             { path: 'users', component: UserListComponent, resolve: { users: UsersResolver } },
             { path: 'users/:id', component: UserDetailComponent, resolve: { user: UserResolver } },
+            { path: 'user/:id', component: UserEditComponent, resolve: { user: UserEditResolver }, canDeactivate: [PreventUnsavedChanges] },
             { path: 'lists', component: ListComponent },
             { path: 'messages', component: MessagesComponent },
         ]

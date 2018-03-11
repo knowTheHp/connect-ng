@@ -26,6 +26,9 @@ import { appRoutes } from './app.routes';
 import { AuthGuard } from './_guards/auth.guard';
 import { UserResolver } from './_resolvers/user.resolver';
 import { UsersResolver } from './_resolvers/users.resolver';
+import { UserEditComponent } from './components/users/user-edit/user-edit.component';
+import { UserEditResolver } from './_resolvers/user-edit.resolver';
+import { PreventUnsavedChanges } from './_guards/unsaved-changes.guard';
 
 @NgModule({
   declarations: [
@@ -37,7 +40,8 @@ import { UsersResolver } from './_resolvers/users.resolver';
     ListComponent,
     MessagesComponent,
     UserViewComponent,
-    UserDetailComponent
+    UserDetailComponent,
+    UserEditComponent
   ],
   imports: [
     BrowserModule,
@@ -49,7 +53,7 @@ import { UsersResolver } from './_resolvers/users.resolver';
     TabsModule.forRoot(),
     NgxGalleryModule
   ],
-  providers: [AuthService, AlertifyService, AuthGuard, UserService, UserResolver, UsersResolver],
+  providers: [AuthService, AlertifyService, AuthGuard, PreventUnsavedChanges, UserService, UserResolver, UsersResolver, UserEditResolver],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

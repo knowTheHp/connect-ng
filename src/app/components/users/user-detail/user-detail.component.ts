@@ -16,7 +16,9 @@ export class UserDetailComponent implements OnInit {
   galleryOptions: NgxGalleryOptions[];
   galleryImages: NgxGalleryImage[];
   education = [];
-
+  workXp = [];
+  project = [];
+  skills = [];
 
   constructor(private userService: UserService, private alertify: AlertifyService, private route: ActivatedRoute) { }
 
@@ -37,6 +39,9 @@ export class UserDetailComponent implements OnInit {
     ];
     this.galleryImages = this.loadImages();
     this.loadEducation();
+    //this.loadWorkExperience();
+    //this.loadProject();
+    //this.loadSkills();
   }
 
   loadEducation() {
@@ -44,6 +49,27 @@ export class UserDetailComponent implements OnInit {
       this.education.push(this.user.education[i]);
     }
     return this.education;
+  }
+
+  loadWorkExperience() {
+    for (let i = 0; i < this.user.workExperience.length; i++) {
+      this.workXp.push(this.user.workExperience[i]);
+    }
+    return this.workXp;
+  }
+
+  loadProject() {
+    for (let i = 0; i < this.user.project.length; i++) {
+      this.project.push(this.user.project[i]);
+    }
+    return this.project;
+  }
+
+  loadSkills() {
+    for (let i = 0; i < this.user.skill.length; i++) {
+      this.skills.push(this.user.skill[i]);
+    }
+    return this.skills;
   }
 
   loadImages() {

@@ -30,7 +30,8 @@
         </a>
         <ul class="dropdown-menu dropdown-menu-position" *dropdownMenu>
           <li routerLinkActive="active">
-            <a class="dropdown-item" href="#">Edit Profile</a>
+            <a class="dropdown-item" [routerLink]="['/user/edit']">Edit Profile</a>
+
           </li>
           <li class="dropdown-divider" role="separator"></li>
           <li routerLinkActive="active">
