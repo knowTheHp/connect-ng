@@ -65,7 +65,7 @@
                                     <a href="../modules/AppModule.html" >AppModule</a>
                                 </li>
                                 <li class="link">
-                                    <a href="../modules/AppRoutingModule.html" >AppRoutingModule</a>
+                                    <a href="../modules/AppRoutingModule.html"  class="active" >AppRoutingModule</a>
                                 </li>
                                 <li class="link">
                                     <a href="../modules/AuthModule.html" >AuthModule</a>
@@ -169,7 +169,7 @@
                                     <a href="../injectables/UserEditResolver.html" >UserEditResolver</a>
                                 </li>
                                 <li class="link">
-                                    <a href="../injectables/UserResolver.html"  class="active" >UserResolver</a>
+                                    <a href="../injectables/UserResolver.html" >UserResolver</a>
                                 </li>
                                 <li class="link">
                                     <a href="../injectables/UserService.html" >UserService</a>
@@ -283,7 +283,7 @@
                                            <a href="../modules/AppModule.html" >AppModule</a>
                                        </li>
                                        <li class="link">
-                                           <a href="../modules/AppRoutingModule.html" >AppRoutingModule</a>
+                                           <a href="../modules/AppRoutingModule.html"  class="active" >AppRoutingModule</a>
                                        </li>
                                        <li class="link">
                                            <a href="../modules/AuthModule.html" >AuthModule</a>
@@ -387,7 +387,7 @@
                                            <a href="../injectables/UserEditResolver.html" >UserEditResolver</a>
                                        </li>
                                        <li class="link">
-                                           <a href="../injectables/UserResolver.html"  class="active" >UserResolver</a>
+                                           <a href="../injectables/UserResolver.html" >UserResolver</a>
                                        </li>
                                        <li class="link">
                                            <a href="../injectables/UserService.html" >UserService</a>
@@ -450,16 +450,26 @@
                    
                    </nav>
                </div>
-               <div class="content injectable">
+               <div class="content module">
                    <div class="content-data">
 
-
-
-
 <ol class="breadcrumb">
-  <li>Injectables</li>
-  <li>UserResolver</li>
+  <li>Modules</li>
+  <li>AppRoutingModule</li>
 </ol>
+
+<div class="text-center">
+    <object id="demo-svg" type="image/svg+xml" data="../modules/AppRoutingModule/dependencies.svg" style="width: 100%; height: 250px;">
+            Your browser does not support SVG
+    </object>
+    <div class="btn-group">
+        <button id="zoom-in" class="btn btn-default btn-sm">Zoom in</button>
+        <button id="reset" class="btn btn-default btn-sm">Reset</button>
+        <button id="zoom-out" class="btn btn-default btn-sm">Zoom out</button>
+    </div>
+</div>
+<script src="../js/libs/svg-pan-zoom.min.js"></script>
+<script src="../js/svg-pan-zoom.controls.js"></script>
 
 <ul class="nav nav-tabs" role="tablist">
     <li class="active">
@@ -476,81 +486,71 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>src/app/_resolvers/user.resolver.ts</code>
+            <code>src/app/app.routes.ts</code>
         </p>
 
 
-            <section>
-                <h3 id="constructor">Constructor</h3>
-                    <table class="table table-sm table-bordered">
-                        <tbody>
-                            <tr>
-                                <td class="col-md-4">
-                                    <code>constructor(userService: <a href="../injectables/UserService.html" >UserService</a>, router: <a href="https://angular.io/docs/ts/latest/api/router/index/Router-class.html" target="_blank" >Router</a>, alertify: <a href="../injectables/AlertifyService.html" >AlertifyService</a>)</code>
-                                </td>
-                            </tr>
-            
-                        </tbody>
-                    </table>
-            </section>
-
-            <section>
-                <h3 id="methods">Methods</h3>
-                    <table class="table table-sm table-bordered">
-                        <tbody>
-                            <tr>
-                                <td class="col-md-4">
-                                    <b> resolve</b>
-                                </td>
-                            </tr>
-            
-                            <tr>
-                                <td class="col-md-4">
-            <code>resolve(route: <a href="https://angular.io/docs/ts/latest/api/router/index/ActivatedRouteSnapshot-interface.html" target="_blank" >ActivatedRouteSnapshot</a>)</code>
-                                </td>
-                            </tr>
-            
-                            <tr>
-                                <td class="col-md-4">
-                                        <div class="io-description">
-                                            <b>Returns: </b>    <code>any</code>
-            
-                                        </div>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-            </section>
-
+        <div class="container-fluid module">
+            <div class="row">
+            </div>
+        </div>
     </div>
     <div class="tab-pane fade tab-source-code" id="source">
-        <pre><code class="hljs javascript">import { Resolve, ActivatedRouteSnapshot, Router } from &quot;@angular/router&quot;;
-import { Observable } from &quot;rxjs/Observable&quot;;
-import { Injectable } from &quot;@angular/core&quot;;
-import &#x27;rxjs/add/operator/catch&#x27;;
-import &#x27;rxjs/add/observable/of&#x27;;
+        <pre><code class="hljs javascript">import { Routes, RouterModule, Router } from &quot;@angular/router&quot;;
+import { HomeComponent } from &quot;./components/home/home.component&quot;;
+import { ListComponent } from &quot;./components/list/list.component&quot;;
+import { MessagesComponent } from &quot;./components/messages/messages.component&quot;;
+import { AuthGuard } from &quot;./_guards/auth.guard&quot;;
+import { UserListComponent } from &quot;./components/users/user-list/user-list.component&quot;;
+import { UserDetailComponent } from &quot;./components/users/user-detail/user-detail.component&quot;;
+import { UserResolver } from &quot;./_resolvers/user.resolver&quot;;
+import { UsersResolver } from &quot;./_resolvers/users.resolver&quot;;
+import { UserEditComponent } from &quot;./components/users/user-edit/user-edit.component&quot;;
+import { UserEditResolver } from &quot;./_resolvers/user-edit.resolver&quot;;
+import { PreventUnsavedChanges } from &quot;./_guards/unsaved-changes.guard&quot;;
+import { NgModule } from &quot;@angular/core&quot;;
 
-import { User } from &quot;../_models/User&quot;;
+const routes: Routes &#x3D; [
+  { path: &quot;home&quot;, component: HomeComponent },
+  {
+    path: &quot;&quot;,
+    runGuardsAndResolvers: &quot;always&quot;,
+    canActivate: [AuthGuard],
+    children: [
+      {
+        path: &quot;users&quot;,
+        component: UserListComponent,
+        resolve: { users: UsersResolver }
+      },
+      {
+        path: &quot;users/:id&quot;,
+        component: UserDetailComponent,
+        resolve: { user: UserResolver }
+      },
+      {
+        path: &quot;user/:id&quot;,
+        component: UserEditComponent,
+        resolve: { user: UserEditResolver },
+        canDeactivate: [PreventUnsavedChanges]
+      },
+      { path: &quot;lists&quot;, component: ListComponent },
+      { path: &quot;messages&quot;, component: MessagesComponent }
+    ]
+  },
+  { path: &quot;**&quot;, redirectTo: &quot;home&quot;, pathMatch: &quot;full&quot; }
+];
 
-import { UserService } from &quot;../_services/user.service&quot;;
-import { AlertifyService } from &quot;../_services/alertify.service&quot;;
-
-@Injectable()
-export class UserResolver implements Resolve&lt;User&gt; {
-    constructor(private userService: UserService, private router: Router, private alertify: AlertifyService) { }
-
-    resolve(route: ActivatedRouteSnapshot): User | Observable&lt;User&gt; | Promise&lt;User&gt; {
-        return this.userService.getUser(route.params[&#x27;id&#x27;])
-            .catch(error &#x3D;&gt; {
-                this.alertify.error(error);
-                this.router.navigate([&#x27;/users&#x27;]);
-                return Observable.of(null);
-            });
-    }
-}
+@NgModule({
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]
+})
+export class AppRoutingModule {}
 </code></pre>
     </div>
 </div>
+
+
+
 
 
 

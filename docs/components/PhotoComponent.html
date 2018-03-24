@@ -100,7 +100,7 @@
                                     <a href="../components/NavbarComponent.html" >NavbarComponent</a>
                                 </li>
                                 <li class="link">
-                                    <a href="../components/PhotoComponent.html" >PhotoComponent</a>
+                                    <a href="../components/PhotoComponent.html"  class="active" >PhotoComponent</a>
                                 </li>
                                 <li class="link">
                                     <a href="../components/SignupComponent.html" >SignupComponent</a>
@@ -169,7 +169,7 @@
                                     <a href="../injectables/UserEditResolver.html" >UserEditResolver</a>
                                 </li>
                                 <li class="link">
-                                    <a href="../injectables/UserResolver.html"  class="active" >UserResolver</a>
+                                    <a href="../injectables/UserResolver.html" >UserResolver</a>
                                 </li>
                                 <li class="link">
                                     <a href="../injectables/UserService.html" >UserService</a>
@@ -318,7 +318,7 @@
                                            <a href="../components/NavbarComponent.html" >NavbarComponent</a>
                                        </li>
                                        <li class="link">
-                                           <a href="../components/PhotoComponent.html" >PhotoComponent</a>
+                                           <a href="../components/PhotoComponent.html"  class="active" >PhotoComponent</a>
                                        </li>
                                        <li class="link">
                                            <a href="../components/SignupComponent.html" >SignupComponent</a>
@@ -387,7 +387,7 @@
                                            <a href="../injectables/UserEditResolver.html" >UserEditResolver</a>
                                        </li>
                                        <li class="link">
-                                           <a href="../injectables/UserResolver.html"  class="active" >UserResolver</a>
+                                           <a href="../injectables/UserResolver.html" >UserResolver</a>
                                        </li>
                                        <li class="link">
                                            <a href="../injectables/UserService.html" >UserService</a>
@@ -450,107 +450,227 @@
                    
                    </nav>
                </div>
-               <div class="content injectable">
+               <div class="content component">
                    <div class="content-data">
 
 
-
-
 <ol class="breadcrumb">
-  <li>Injectables</li>
-  <li>UserResolver</li>
+  <li>Components</li>
+  <li>PhotoComponent</li>
 </ol>
 
-<ul class="nav nav-tabs" role="tablist">
-    <li class="active">
-        <a href="#infos" id="infos-tab" role="tab" data-toggle="tab">Infos</a>
-    </li>
-    <li>
-        <a href="#source" role="tab" id="source-tab" data-toggle="tab">Source</a>
-    </li>
-</ul>
 
-<div class="tab-content">
-    <div class="tab-pane fade active in" id="infos">
-        <p class="comment">
-            <h3>File</h3>
-        </p>
-        <p class="comment">
-            <code>src/app/_resolvers/user.resolver.ts</code>
-        </p>
+    <ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#infos" id="infos-tab" role="tab" data-toggle="tab">Infos</a>
+        </li>
+        <li>
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab">Source</a>
+        </li>
+    </ul>
+
+    <div class="tab-content">
+        <div class="tab-pane fade active in" id="infos"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/components/users/photo/photo.component.ts</code>
+</p>
 
 
-            <section>
-                <h3 id="constructor">Constructor</h3>
-                    <table class="table table-sm table-bordered">
-                        <tbody>
-                            <tr>
-                                <td class="col-md-4">
-                                    <code>constructor(userService: <a href="../injectables/UserService.html" >UserService</a>, router: <a href="https://angular.io/docs/ts/latest/api/router/index/Router-class.html" target="_blank" >Router</a>, alertify: <a href="../injectables/AlertifyService.html" >AlertifyService</a>)</code>
-                                </td>
-                            </tr>
-            
-                        </tbody>
-                    </table>
-            </section>
 
-            <section>
-                <h3 id="methods">Methods</h3>
-                    <table class="table table-sm table-bordered">
-                        <tbody>
-                            <tr>
-                                <td class="col-md-4">
-                                    <b> resolve</b>
-                                </td>
-                            </tr>
-            
-                            <tr>
-                                <td class="col-md-4">
-            <code>resolve(route: <a href="https://angular.io/docs/ts/latest/api/router/index/ActivatedRouteSnapshot-interface.html" target="_blank" >ActivatedRouteSnapshot</a>)</code>
-                                </td>
-                            </tr>
-            
-                            <tr>
-                                <td class="col-md-4">
-                                        <div class="io-description">
-                                            <b>Returns: </b>    <code>any</code>
-            
-                                        </div>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-            </section>
+<section>
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover">
+        <tbody>
 
-    </div>
-    <div class="tab-pane fade tab-source-code" id="source">
-        <pre><code class="hljs javascript">import { Resolve, ActivatedRouteSnapshot, Router } from &quot;@angular/router&quot;;
-import { Observable } from &quot;rxjs/Observable&quot;;
-import { Injectable } from &quot;@angular/core&quot;;
-import &#x27;rxjs/add/operator/catch&#x27;;
-import &#x27;rxjs/add/observable/of&#x27;;
 
-import { User } from &quot;../_models/User&quot;;
 
-import { UserService } from &quot;../_services/user.service&quot;;
-import { AlertifyService } from &quot;../_services/alertify.service&quot;;
 
-@Injectable()
-export class UserResolver implements Resolve&lt;User&gt; {
-    constructor(private userService: UserService, private router: Router, private alertify: AlertifyService) { }
 
-    resolve(route: ActivatedRouteSnapshot): User | Observable&lt;User&gt; | Promise&lt;User&gt; {
-        return this.userService.getUser(route.params[&#x27;id&#x27;])
-            .catch(error &#x3D;&gt; {
-                this.alertify.error(error);
-                this.router.navigate([&#x27;/users&#x27;]);
-                return Observable.of(null);
-            });
-    }
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-photo</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>photo.component.css</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>photo.component.html</code></td>
+            </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+        <h3 id="inputs">Inputs</h3>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-2">
+                            <code>Photos</code>
+                        </td>
+                        <td class="col-md-10">
+                              <p>
+                                <em>Type:</em>    <code>Photo[]</code>
+
+                              </p>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+    </section>
+
+
+    <section>
+        <h3 id="constructor">Constructor</h3>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <code>constructor()</code>
+                        </td>
+                    </tr>
+    
+                </tbody>
+            </table>
+    </section>
+
+    <section>
+        <h3 id="methods">Methods</h3>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <b><span class="modifier">Public</span> fileOverBase</b>
+                        </td>
+                    </tr>
+    
+                    <tr>
+                        <td class="col-md-4">
+                                <span class="modifier-icon method fa fa-play circle">
+                                    <span class="fa fa-circle"></span>
+                                </span>
+                            <code>fileOverBase(e: any)</code>
+                        </td>
+                    </tr>
+    
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-description">
+                                    <b>Returns: </b>    <code>void</code>
+    
+                                </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+    </section>
+
+    <section>
+        <h3 id="inputs">Properties</h3>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <b> hasAnotherDropZoneOver</b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <code>hasAnotherDropZoneOver:     <code>boolean</code>
+    </bcode>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <i>Default value: </i><code>false</code>
+                            </td>
+                        </tr>
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <b> hasBaseDropZoneOver</b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <code>hasBaseDropZoneOver:     <code>boolean</code>
+    </bcode>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <i>Default value: </i><code>false</code>
+                            </td>
+                        </tr>
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <b> uploader</b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <code>uploader:     <code>FileUploader</code>
+    </bcode>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+    </section>
+</div>
+        <div class="tab-pane fade tab-source-code" id="source">
+            <pre><code class="hljs javascript">import { Component, OnInit, Input } from &quot;@angular/core&quot;;
+import { Photo } from &quot;../../../_models/Photo&quot;;
+import { FileUploader } from &quot;ng2-file-upload&quot;;
+@Component({
+  selector: &quot;app-photo&quot;,
+  templateUrl: &quot;./photo.component.html&quot;,
+  styleUrls: [&quot;./photo.component.css&quot;]
+})
+export class PhotoComponent implements OnInit {
+  @Input() Photos: Photo[];
+
+  uploader: FileUploader &#x3D; new FileUploader({});
+  hasBaseDropZoneOver: boolean &#x3D; false;
+  hasAnotherDropZoneOver: boolean &#x3D; false;
+
+  constructor() {}
+
+  ngOnInit() {}
+
+  public fileOverBase(e: any): void {
+    this.hasBaseDropZoneOver &#x3D; e;
+  }
 }
 </code></pre>
+        </div>
     </div>
-</div>
+
+
+
 
 
 

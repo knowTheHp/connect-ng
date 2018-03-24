@@ -65,6 +65,9 @@
                                     <a href="../modules/AppModule.html"  class="active" >AppModule</a>
                                 </li>
                                 <li class="link">
+                                    <a href="../modules/AppRoutingModule.html" >AppRoutingModule</a>
+                                </li>
+                                <li class="link">
                                     <a href="../modules/AuthModule.html" >AuthModule</a>
                                 </li>
                         </ul>
@@ -95,6 +98,9 @@
                                 </li>
                                 <li class="link">
                                     <a href="../components/NavbarComponent.html" >NavbarComponent</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../components/PhotoComponent.html" >PhotoComponent</a>
                                 </li>
                                 <li class="link">
                                     <a href="../components/SignupComponent.html" >SignupComponent</a>
@@ -132,6 +138,9 @@
                         </ul>
                     </li>
             
+                    <li class="chapter">
+                        <a data-type="chapter-link" href="../routes.html" ><span class="fa fa-code-fork"></span>Routes</a>
+                    </li>
             
                     <li class="chapter">
                         <div class="simple">
@@ -274,6 +283,9 @@
                                            <a href="../modules/AppModule.html"  class="active" >AppModule</a>
                                        </li>
                                        <li class="link">
+                                           <a href="../modules/AppRoutingModule.html" >AppRoutingModule</a>
+                                       </li>
+                                       <li class="link">
                                            <a href="../modules/AuthModule.html" >AuthModule</a>
                                        </li>
                                </ul>
@@ -304,6 +316,9 @@
                                        </li>
                                        <li class="link">
                                            <a href="../components/NavbarComponent.html" >NavbarComponent</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../components/PhotoComponent.html" >PhotoComponent</a>
                                        </li>
                                        <li class="link">
                                            <a href="../components/SignupComponent.html" >SignupComponent</a>
@@ -341,6 +356,9 @@
                                </ul>
                            </li>
                    
+                           <li class="chapter">
+                               <a data-type="chapter-link" href="../routes.html" ><span class="fa fa-code-fork"></span>Routes</a>
+                           </li>
                    
                            <li class="chapter">
                                <div class="simple">
@@ -507,6 +525,9 @@
                             <li class="list-group-item">
                                 <a href="../components/UserEditComponent.html">UserEditComponent</a>
                             </li>
+                            <li class="list-group-item">
+                                <a href="../components/PhotoComponent.html">PhotoComponent</a>
+                            </li>
                     </ul>
                 </div>
                 <div class="col-sm-3">
@@ -544,6 +565,9 @@
                             <li class="list-group-item">
                                     <a href="../modules/AuthModule.html" >AuthModule</a>
                             </li>
+                            <li class="list-group-item">
+                                    <a href="../modules/AppRoutingModule.html" >AppRoutingModule</a>
+                            </li>
                     </ul>
                 </div>
                 <div class="col-sm-3">
@@ -558,37 +582,40 @@
         </div>
     </div>
     <div class="tab-pane fade tab-source-code" id="source">
-        <pre><code class="hljs javascript">import { AuthModule } from &#x27;./auth/auth.module&#x27;;
-import { BrowserModule } from &#x27;@angular/platform-browser&#x27;;
-import { NgModule } from &#x27;@angular/core&#x27;;
-import { HttpModule } from &#x27;@angular/http&#x27;;
-import { FormsModule } from &#x27;@angular/forms&#x27;;
-import { RouterModule } from &#x27;@angular/router&#x27;;
-import { BsDropdownModule } from &#x27;ngx-bootstrap/dropdown&#x27;;
-import { TabsModule } from &#x27;ngx-bootstrap/tabs&#x27;;
-import { NgxGalleryModule } from &#x27;ngx-gallery&#x27;;
+        <pre><code class="hljs javascript">import { AuthModule } from &quot;./auth/auth.module&quot;;
+import { BrowserModule } from &quot;@angular/platform-browser&quot;;
+import { NgModule } from &quot;@angular/core&quot;;
+import { HttpModule } from &quot;@angular/http&quot;;
+import { FormsModule } from &quot;@angular/forms&quot;;
+import { RouterModule, Router } from &quot;@angular/router&quot;;
+import { BsDropdownModule } from &quot;ngx-bootstrap/dropdown&quot;;
+import { TabsModule } from &quot;ngx-bootstrap/tabs&quot;;
+import { NgxGalleryModule } from &quot;ngx-gallery&quot;;
 
-import { AppComponent } from &#x27;./app.component&#x27;;
-import { NavbarComponent } from &#x27;./components/navbar/navbar.component&#x27;;
-import { SignupComponent } from &#x27;./components/signup/signup.component&#x27;;
-import { HomeComponent } from &#x27;./components/home/home.component&#x27;;
-import { ListComponent } from &#x27;./components/list/list.component&#x27;;
-import { MessagesComponent } from &#x27;./components/messages/messages.component&#x27;;
-import { UserListComponent } from &#x27;./components/users/user-list/user-list.component&#x27;;
-import { UserViewComponent } from &#x27;./components/users/user-view/user-view.component&#x27;;
-import { UserDetailComponent } from &#x27;./components/users/user-detail/user-detail.component&#x27;;
+import { AppComponent } from &quot;./app.component&quot;;
+import { NavbarComponent } from &quot;./components/navbar/navbar.component&quot;;
+import { SignupComponent } from &quot;./components/signup/signup.component&quot;;
+import { HomeComponent } from &quot;./components/home/home.component&quot;;
+import { ListComponent } from &quot;./components/list/list.component&quot;;
+import { MessagesComponent } from &quot;./components/messages/messages.component&quot;;
+import { UserListComponent } from &quot;./components/users/user-list/user-list.component&quot;;
+import { UserViewComponent } from &quot;./components/users/user-view/user-view.component&quot;;
+import { UserDetailComponent } from &quot;./components/users/user-detail/user-detail.component&quot;;
+import { UserEditComponent } from &quot;./components/users/user-edit/user-edit.component&quot;;
+import { PhotoComponent } from &quot;./components/users/photo/photo.component&quot;;
 
-import { AuthService } from &#x27;./_services/auth.service&#x27;;
-import { AlertifyService } from &#x27;./_services/alertify.service&#x27;;
-import { UserService } from &#x27;./_services/user.service&#x27;;
+import { AuthService } from &quot;./_services/auth.service&quot;;
+import { AlertifyService } from &quot;./_services/alertify.service&quot;;
+import { UserService } from &quot;./_services/user.service&quot;;
 
-import { appRoutes } from &#x27;./app.routes&#x27;;
-import { AuthGuard } from &#x27;./_guards/auth.guard&#x27;;
-import { UserResolver } from &#x27;./_resolvers/user.resolver&#x27;;
-import { UsersResolver } from &#x27;./_resolvers/users.resolver&#x27;;
-import { UserEditComponent } from &#x27;./components/users/user-edit/user-edit.component&#x27;;
-import { UserEditResolver } from &#x27;./_resolvers/user-edit.resolver&#x27;;
-import { PreventUnsavedChanges } from &#x27;./_guards/unsaved-changes.guard&#x27;;
+// import { appRoutes } from &quot;./app.routes&quot;;
+import { AuthGuard } from &quot;./_guards/auth.guard&quot;;
+import { UserResolver } from &quot;./_resolvers/user.resolver&quot;;
+import { UsersResolver } from &quot;./_resolvers/users.resolver&quot;;
+import { UserEditResolver } from &quot;./_resolvers/user-edit.resolver&quot;;
+import { PreventUnsavedChanges } from &quot;./_guards/unsaved-changes.guard&quot;;
+import { FileUploadModule } from &quot;ng2-file-upload&quot;;
+import { AppRoutingModule } from &quot;./app.routes&quot;;
 
 @NgModule({
   declarations: [
@@ -601,22 +628,33 @@ import { PreventUnsavedChanges } from &#x27;./_guards/unsaved-changes.guard&#x27
     MessagesComponent,
     UserViewComponent,
     UserDetailComponent,
-    UserEditComponent
+    UserEditComponent,
+    PhotoComponent
   ],
   imports: [
     BrowserModule,
     HttpModule,
     FormsModule,
     BsDropdownModule.forRoot(),
-    RouterModule.forRoot(appRoutes),
     AuthModule,
     TabsModule.forRoot(),
-    NgxGalleryModule
+    NgxGalleryModule,
+    FileUploadModule,
+    AppRoutingModule
   ],
-  providers: [AuthService, AlertifyService, AuthGuard, PreventUnsavedChanges, UserService, UserResolver, UsersResolver, UserEditResolver],
+  providers: [
+    AuthService,
+    AlertifyService,
+    AuthGuard,
+    PreventUnsavedChanges,
+    UserService,
+    UserResolver,
+    UsersResolver,
+    UserEditResolver
+  ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}
 </code></pre>
     </div>
 </div>
