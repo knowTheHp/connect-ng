@@ -4,10 +4,12 @@ import { UserEditComponent } from "../components/users/user-edit/user-edit.compo
 
 @Injectable()
 export class PreventUnsavedChanges implements CanDeactivate<UserEditComponent> {
-    canDeactivate(component: UserEditComponent) {
-        if (component.editForm.dirty) {
-            return confirm('Are you sure you want to continue? Any unsaved changes will be lost.');
-        }
-        return true;
+  canDeactivate(component: UserEditComponent) {
+    if (component.editForm.dirty) {
+      return confirm(
+        "Are you sure you want to continue? Any unsaved changes will be lost."
+      );
     }
+    return true;
+  }
 }
