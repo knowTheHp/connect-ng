@@ -11,7 +11,7 @@
     <div class="col-sm-12">
       <div class="card">
         <div class="card-title text-center mt-3">
-          <img src="{{user.photoUrl}}" class="img-fluid" alt="{{user.username}}">
+          <img src="{{photoUrl}}" class="img-fluid" alt="{{user.username}}">
           <h4 class="card-text">
             {{user.firstname+ ' '+user.lastname}}
           </h4>
@@ -89,7 +89,7 @@
         <!-- end -->
         <!-- Photos tab -->
         <tab heading="Photos" class="mt-3">
-          <app-photo [Photos]="user.photos"></app-photo>
+          <app-photo [Photos]="user.photos" (changedUserPhoto)="updateProfilePic($event)"></app-photo>
         </tab>
         <!-- end -->
       </tabset>

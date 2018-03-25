@@ -1,36 +1,40 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { User } from '../../../_models/User';
-import { UserService } from '../../../_services/user.service';
-import { AlertifyService } from '../../../_services/alertify.service';
-import { NgxGalleryOptions, NgxGalleryAnimation } from 'ngx-gallery';
-import { NgxGalleryImage } from 'ngx-gallery';
+import { Component, OnInit } from "@angular/core";
+import { ActivatedRoute } from "@angular/router";
+import { User } from "../../../_models/User";
+import { UserService } from "../../../_services/user.service";
+import { AlertifyService } from "../../../_services/alertify.service";
+import { NgxGalleryOptions, NgxGalleryAnimation } from "ngx-gallery";
+import { NgxGalleryImage } from "ngx-gallery";
 
 @Component({
-  selector: 'app-user-detail',
-  templateUrl: './user-detail.component.html',
-  styleUrls: ['./user-detail.component.css']
+  selector: "app-user-detail",
+  templateUrl: "./user-detail.component.html",
+  styleUrls: ["./user-detail.component.css"]
 })
 export class UserDetailComponent implements OnInit {
   user: User;
   galleryOptions: NgxGalleryOptions[];
   galleryImages: NgxGalleryImage[];
   education = [];
-  workXp = [];
+  workExperience = [];
   project = [];
   skills = [];
 
-  constructor(private userService: UserService, private alertify: AlertifyService, private route: ActivatedRoute) { }
+  constructor(
+    private userService: UserService,
+    private alertify: AlertifyService,
+    private route: ActivatedRoute
+  ) {}
 
   ngOnInit() {
     this.route.data.subscribe(data => {
-      this.user = data['user'];
+      this.user = data["user"];
     });
 
     this.galleryOptions = [
       {
-        width: '500px',
-        height: '500px',
+        width: "500px",
+        height: "500px",
         imagePercent: 100,
         thumbnailsColumns: 4,
         imageAnimation: NgxGalleryAnimation.Slide,
@@ -53,9 +57,9 @@ export class UserDetailComponent implements OnInit {
 
   loadWorkExperience() {
     for (let i = 0; i < this.user.workExperience.length; i++) {
-      this.workXp.push(this.user.workExperience[i]);
+      this.workExperience.push(this.user.workExperience[i]);
     }
-    return this.workXp;
+    return this.workExperience;
   }
 
   loadProject() {
@@ -83,5 +87,4 @@ export class UserDetailComponent implements OnInit {
     }
     return imageUrls;
   }
-
 }

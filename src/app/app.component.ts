@@ -1,24 +1,26 @@
-import { Component, OnInit } from '@angular/core';
-import { AuthService } from './_services/auth.service';
-import { JwtHelper } from 'angular2-jwt';
+import { Component, OnInit } from "@angular/core";
+import { AuthService } from "./_services/auth.service";
+import { JwtHelper } from "angular2-jwt";
+import { User } from "./_models/User";
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  selector: "app-root",
+  templateUrl: "./app.component.html",
+  styleUrls: ["./app.component.css"]
 })
-
 export class AppComponent implements OnInit {
   jwtHelper: JwtHelper = new JwtHelper();
-
-  constructor(private authService: AuthService) {
-
-  }
+  constructor(private authService: AuthService) {}
   ngOnInit() {
     //to populate name on navbar after every refresh if token is valid
-    const token = localStorage.getItem('token');
+    const token = localStorage.getItem("token");
+    const user: User = JSON.parse(localStorage.getItem("user"));
     if (token) {
       this.authService.decodedToken = this.jwtHelper.decodeToken(token);
+    }
+    if (user) {
+      this.authService.currentUser = user;
+      this.authService.changeUserPhoto(user.photoUrl);
     }
   }
 }

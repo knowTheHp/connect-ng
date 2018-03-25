@@ -24,18 +24,20 @@
     </form>
 
     <ul *ngIf="loggedIn()" class="nav navbar-nav mr-5">
+      <li class="nav-item">
+        <img src="{{photoUrl}}" class="img-small" alt="">
+      </li>
       <li class="dropdown" dropdown>
         <a class="nav-link dropdown-toggle username_link" dropdownToggle>
-          Welcome {{authService.decodedToken?.unique_name | titlecase }}
+          {{authService.decodedToken?.unique_name | titlecase }}
         </a>
         <ul class="dropdown-menu dropdown-menu-position" *dropdownMenu>
           <li routerLinkActive="active">
             <a class="dropdown-item" [routerLink]="['/user/edit']">Edit Profile</a>
-
           </li>
           <li class="dropdown-divider" role="separator"></li>
           <li routerLinkActive="active">
-            <a class="dropdown-item" href="#" (click)="logoutUser()">Logout</a>
+            <a class="dropdown-item" [routerLink]="['/home']" (click)="logoutUser()">Logout</a>
           </li>
         </ul>
       </li>
