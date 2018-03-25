@@ -46,6 +46,12 @@ export class UserService {
       .catch(this.handleError);
   }
 
+  deletePhoto(userId: Number, photoId: Number) {
+    return this.authHttp
+      .delete(this.baseUrl + "users/" + userId + "/photos/" + photoId)
+      .catch(this.handleError);
+  }
+
   //handle api errors
   private handleError(error: any) {
     //application error

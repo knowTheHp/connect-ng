@@ -5,7 +5,7 @@
       <button class="btn btn-xs" type="button" (click)="setProfilePicture(photo)" [disabled]="photo.isMain" [ngClass]="photo.isMain ? 'btn-success active':'btn-default'">
         <i class="fa fa-file-image-o"></i>
       </button>
-      <button class="btn btn-xs btn-danger" type="button">
+      <button class="btn btn-xs btn-danger" (click)="deletePhoto(photo.id)" [disabled]="photo.isMain" type="button">
         <i class="fa fa-trash-o"></i>
       </button>
     </div>

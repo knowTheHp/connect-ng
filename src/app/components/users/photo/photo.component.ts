@@ -82,4 +82,20 @@ export class PhotoComponent implements OnInit {
         }
       );
   }
+
+  deletePhoto(photoId: Number) {
+    this.alertify.confirm("Are you sure you want to delete this photo", () => {
+      this.userService
+        .deletePhoto(this.authService.decodedToken.nameid, photoId)
+        .subscribe(
+          () => {
+            this.Photos.splice(_.findIndex(this.Photos, { id: photoId }), 1);
+            this.alertify.success("Photo has been deleted");
+          },
+          error => {
+            this.alertify.error("Failed to delete photo");
+          }
+        );
+    });
+  }
 }
