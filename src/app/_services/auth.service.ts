@@ -22,13 +22,9 @@ export class AuthService {
   constructor(private http: Http) {}
 
   //register service
-  register(registerModel: any) {
+  register(user: User) {
     return this.http
-      .post(
-        this.baseUrl + "register",
-        registerModel,
-        this.requestHeaderOptions()
-      )
+      .post(this.baseUrl + "register", user, this.requestHeaderOptions())
       .catch(this.handleError);
   }
 
