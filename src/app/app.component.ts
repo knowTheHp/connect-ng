@@ -20,7 +20,11 @@ export class AppComponent implements OnInit {
     }
     if (user) {
       this.authService.currentUser = user;
-      this.authService.changeUserPhoto(user.photoUrl);
+      if (this.authService.currentUser.photoUrl != null) {
+        this.authService.changeUserPhoto(user.photoUrl);
+      } else {
+        this.authService.changeUserPhoto("../assets/user.png");
+      }
     }
   }
 }
