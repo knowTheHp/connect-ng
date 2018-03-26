@@ -1,30 +1,57 @@
-<form action="" #registerForm="ngForm" (ngSubmit)="registerUser()">
+<form action="" [formGroup]="registerForm" (ngSubmit)="registerUser()">
   <h2 class="text-center text-primary h2">Sign Up</h2>
   <hr>
 
-  <div class="form-group">
-    <input type="text" class="form-control" placeholder="First name" name="fname" required [(ngModel)]="signupModel.firstname"
-      #fnameInput="ngModel">
-  </div>
-  <div class="form-group">
-    <input type="text" class="form-control" placeholder="Surname" name="surname" required [(ngModel)]="signupModel.lastname"
-      #snameInput="ngModel">
-  </div>
-  <div class="form-group">
-    <input type="text" class="form-control" placeholder="Username" name="username" required [(ngModel)]="signupModel.username"
-      #unameInput="ngModel">
-  </div>
-  <div class="form-group">
-    <input type="email" class="form-control" placeholder="Email Address" name="emailaddress" required [(ngModel)]="signupModel.email"
-      #emailInput="ngModel">
-  </div>
-  <div class="form-group">
-    <input type="password" class="form-control" placeholder="New password" name="password" required [(ngModel)]="signupModel.password"
-      #pwdInput="ngModel">
-  </div>
-  <div class="form-group text-center">
-    <button class="btn btn-success" type="submit">Register</button>
-    <button class="btn btn-secondary" (click)="cancelRegistration()" type="button">Cancel</button>
+  <div class="form-group" [ngClass]="{'has-danger':registerForm.get('firstname').errors && registerForm.get('firstname').touched}">
+    <input type="text" class="form-control" placeholder="First name" formControlName="firstname">
+    <span class="help-block text-danger" *ngIf="registerForm.get('firstname').hasError('required') && registerForm.get('firstname').touched">First name is required</span>
   </div>
 
+  <div class="form-group" [ngClass]="{'has-danger':registerForm.get('lastname').errors && registerForm.get('lastname').touched}">
+    <input type="text" class="form-control" placeholder="Surname" formControlName="lastname">
+    <span class="help-block text-danger" *ngIf="registerForm.get('lastname').hasError('required') && registerForm.get('lastname').touched">Surname is required</span>
+  </div>
+
+  <div class="form-group" [ngClass]="{'has-danger':registerForm.get('username').errors && registerForm.get('username').touched}">
+    <input type="text" class="form-control" placeholder="Username" formControlName="username">
+    <span class="help-block text-danger" *ngIf="registerForm.get('username').hasError('required') && registerForm.get('username').touched">Username is required</span>
+  </div>
+
+  <div class="form-group">
+    <label class="control-label">I am a: </label>
+    <label class="radio-inline">
+      <input type="radio" value="Male" formControlName="gender">Male
+    </label>
+    <label class="radio-inline">
+      <input type="radio" value="Female" formControlName="gender">Female
+    </label>
+  </div>
+  <div class="form-group" [ngClass]="{'has-danger':registerForm.get('dateOfBirth').touched && registerForm.get('dateOfBirth').hasError('required')}">
+    <!-- <input type="text" bsDatePicker class="form-control" placeholder="Date of Birth" formControlName="dateOfBirth"> -->
+    <input type="date" class="form-control" placeholder="dd/mm/yyyy" formControlName="dateOfBirth">
+
+    <span class="help-block text-danger" *ngIf="registerForm.get('dateOfBirth').touched && registerForm.get('dateOfBirth').hasError('required')">Date of Birth is required</span>
+  </div>
+  <div class="form-group">
+    <input type="email" class="form-control" placeholder="Email Address" formControlName="email">
+    <span class="help-block text-danger" *ngIf="registerForm.get('email').hasError('required') && registerForm.get('email').touched">Email is required</span>
+    <span class="help-block text-danger" *ngIf="registerForm.get('email').hasError('email') && registerForm.get('email').dirty">Email should be in a format of abc@example.com</span>
+  </div>
+
+  <div class="form-group">
+    <input type="password" class="form-control" placeholder="New password" formControlName="password">
+    <span class="help-block text-danger" *ngIf="registerForm.get('password').hasError('required') && registerForm.get('password').touched">Password is required</span>
+    <span class="help-block text-danger" *ngIf="registerForm.get('password').hasError('minlength') && registerForm.get('password').dirty">Password must be 8 or 24 characters long</span>
+  </div>
+
+  <div class="form-group" [ngClass]="{'has-error':registerForm.get('confirmPassword').errors && registerForm.get('confirmPassword').touched || registerForm.get('confirmPassword').dirty && registerForm.hasError('mismatch')}">
+    <input type="password" class="form-control" placeholder="Confirm password" formControlName="confirmPassword">
+    <span class="help-block text-danger" *ngIf="registerForm.get('confirmPassword').hasError('required') && registerForm.get('confirmPassword').touched">Confirm Password is required</span>
+    <span class="help-block text-danger" *ngIf="registerForm.get('confirmPassword').dirty && registerForm.hasError('mismatch')">Password and Confirm Password mismatch</span>
+  </div>
+
+  <div class="form-group text-center">
+    <button class="btn btn-success" type="submit" [disabled]="!registerForm.valid">Register</button>
+    <button class="btn btn-secondary" (click)="cancelRegistration()" type="button">Cancel</button>
+  </div>
 </form>
