@@ -6,9 +6,9 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { RouterModule, Router } from "@angular/router";
 import { BsDropdownModule } from "ngx-bootstrap/dropdown";
 import { BsDatepickerModule } from "ngx-bootstrap/datepicker";
-
 import { TabsModule } from "ngx-bootstrap/tabs";
 import { NgxGalleryModule } from "ngx-gallery";
+import { TimeAgoPipe } from "time-ago-pipe";
 
 import { AppComponent } from "./app.component";
 import { NavbarComponent } from "./components/navbar/navbar.component";
@@ -47,7 +47,8 @@ import { AppRoutingModule } from "./app.routes";
     UserViewComponent,
     UserDetailComponent,
     UserEditComponent,
-    PhotoComponent
+    PhotoComponent,
+    TimeAgoPipe
   ],
   imports: [
     BrowserModule,
