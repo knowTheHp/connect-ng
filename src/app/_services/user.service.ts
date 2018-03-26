@@ -1,13 +1,14 @@
 import { AuthHttp } from "angular2-jwt";
 import { Injectable } from "@angular/core";
 import { environment } from "../../environments/environment";
-import { RequestOptions, Headers } from "@angular/http";
+import { RequestOptions, Headers, Response } from "@angular/http";
 import { Observable } from "rxjs/observable";
 import { User } from "../_models/User";
 
 import "rxjs/add/operator/map";
 import "rxjs/add/operator/catch";
 import "rxjs/add/observable/throw";
+import { PaginatedData } from "../_models/Pagination";
 
 @Injectable()
 export class UserService {
@@ -15,10 +16,26 @@ export class UserService {
   constructor(private authHttp: AuthHttp) {}
 
   //get users
-  getUsers(): Observable<User[]> {
+  getUsers(page?: number, itemsPerPage?: number): Observable<User[]> {
+    const paginatedData: PaginatedData<User[]> = new PaginatedData<User[]>();
+
+    //query string
+    let sortResult = "?";
+    if (page != null && itemsPerPage != null) {
+      sortResult += "pageNumber=" + page + "&pageSize=" + itemsPerPage;
+    }
     return this.authHttp
-      .get(this.baseUrl + "user")
-      .map(response => <User[]>response.json())
+      .get(this.baseUrl + "user" + sortResult)
+      .map((response: Response) => {
+        paginatedData.result = response.json();
+
+        if (response.headers.get("Pagination") != null) {
+          paginatedData.pagination = JSON.parse(
+            response.headers.get("Pagination")
+          );
+        }
+        return paginatedData;
+      })
       .catch(this.handleError);
   }
 

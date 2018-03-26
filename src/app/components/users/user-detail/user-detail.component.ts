@@ -5,6 +5,7 @@ import { UserService } from "../../../_services/user.service";
 import { AlertifyService } from "../../../_services/alertify.service";
 import { NgxGalleryOptions, NgxGalleryAnimation } from "ngx-gallery";
 import { NgxGalleryImage } from "ngx-gallery";
+import { Skill } from "../../../_models/Skill";
 
 @Component({
   selector: "app-user-detail",
