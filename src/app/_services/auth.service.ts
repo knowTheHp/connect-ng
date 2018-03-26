@@ -46,7 +46,11 @@ export class AuthService {
           this.currentUser = user.userDto;
           this.decodedToken = this.jwtHelper.decodeToken(user.tokenString);
           this.userToken = user.tokenString;
-          this.changeUserPhoto(this.currentUser.photoUrl);
+          if (this.currentUser.photoUrl != null) {
+            this.changeUserPhoto(this.currentUser.photoUrl);
+          } else {
+            this.changeUserPhoto("../../assets/user.png");
+          }
         }
       })
       .catch(this.handleError);

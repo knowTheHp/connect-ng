@@ -1,7 +1,7 @@
 <div class="card mt-5">
   <div class="card-body">
     <div class="card-img text-center">
-      <img src="{{user.photoUrl}}" alt="{{user.firstname+user.lastname}}">
+      <img src="{{user.photoUrl ? user.photoUrl : '../../../assets/user.png'}}" alt="{{user.firstname+user.lastname}}">
     </div>
     <div class="card-text text-center">
       <ul class="list-inline">

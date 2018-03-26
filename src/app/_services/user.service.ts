@@ -46,6 +46,7 @@ export class UserService {
       .catch(this.handleError);
   }
 
+  //delete photo
   deletePhoto(userId: Number, photoId: Number) {
     return this.authHttp
       .delete(this.baseUrl + "users/" + userId + "/photos/" + photoId)
