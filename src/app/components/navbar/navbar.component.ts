@@ -32,7 +32,7 @@ export class NavbarComponent implements OnInit {
         this.alertify.error("failed to login");
       },
       () => {
-        this.router.navigate(["/user/edit"]);
+        this.router.navigate(["/users"]);
       }
     );
   }
