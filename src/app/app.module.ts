@@ -2,9 +2,11 @@ import { AuthModule } from "./auth/auth.module";
 import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
 import { HttpModule } from "@angular/http";
-import { FormsModule } from "@angular/forms";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { RouterModule, Router } from "@angular/router";
 import { BsDropdownModule } from "ngx-bootstrap/dropdown";
+import { BsDatepickerModule } from "ngx-bootstrap/datepicker";
+
 import { TabsModule } from "ngx-bootstrap/tabs";
 import { NgxGalleryModule } from "ngx-gallery";
 
@@ -51,12 +53,14 @@ import { AppRoutingModule } from "./app.routes";
     BrowserModule,
     HttpModule,
     FormsModule,
-    BsDropdownModule.forRoot(),
     AuthModule,
-    TabsModule.forRoot(),
     NgxGalleryModule,
     FileUploadModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule,
+    BsDropdownModule.forRoot(),
+    TabsModule.forRoot(),
+    BsDatepickerModule.forRoot()
   ],
   providers: [
     AuthService,
